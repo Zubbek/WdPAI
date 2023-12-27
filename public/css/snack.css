@@ -1,0 +1,133 @@
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(222, 222, 222);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 222, 222, 1) 0%,
+    rgba(255, 255, 255, 1) 52%,
+    rgba(176, 176, 176, 1) 100%
+  );
+}
+
+.nav-logo {
+  display: block;
+  max-width: 100px;
+  height: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 2rem;
+
+  height: 100px;
+  background-color: rgba(78, 78, 78, 0.6);
+}
+
+.navbar .mobile-back {
+  display: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 6rem;
+  justify-content: space-evenly;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #ffb000;
+  font-weight: 600;
+  transition: all 0.2s ease-in;
+}
+
+.navbar h1 {
+  align-self: center;
+  justify-self: center;
+  color: #ffb000;
+}
+
+.navbar a:hover {
+  padding-top: 10px;
+  text-decoration: underline solid 2px;
+}
+
+.navbar a:nth-child(1) {
+  color: white;
+}
+
+.navbar a:nth-child(3) {
+  color: white;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.meal-conatainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-info {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 4rem;
+  max-width: 60%;
+  margin: 100px auto;
+}
+
+.categories-info h1 {
+  font-size: 60px;
+}
+
+.categories-info p {
+  color: black;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.categories-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.greetings-content {
+  margin-top: 200px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.greetings-content p {
+  font-size: 20px;
+  color: black;
+}
+
+.author-info {
+  display: flex;
+  padding: 0 15px;
+  justify-content: space-evenly;
+  background-color: rgba(78, 78, 78, 0.6);
+  font-size: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.author-info p {
+  color: #ffb000;
+}

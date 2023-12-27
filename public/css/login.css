@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  background-image: radial-gradient(
+      circle,
+      rgba(88, 88, 88, 0.5) 0%,
+      rgba(129, 129, 129, 0.5) 100%
+    ),
+    url(/public/images/background11.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.wrapper {
+  height: 100vh;
+  flex: 50%;
+  background: linear-gradient(97deg, rgb(255, 255, 255) 50%, transparent 50%);
+}
+
+.back-to-main-page {
+  text-decoration: none;
+  color: #ffb000;
+  font-weight: 400;
+  transition: all 0.2s ease-in;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.back-to-main-page:hover {
+  padding-top: 10px;
+  text-decoration: underline solid 2px;
+}
+
+.wrapper .form-box-login {
+  width: 37%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+  margin-left: 60px;
+}
+
+.form-box-login h1 {
+  font-size: 50px;
+  text-align: center;
+  color: #ffb000;
+}
+
+.box-login {
+  padding: 40px 90px 40px 90px;
+  border: 1px solid #ffb000;
+  border-radius: 30px;
+  width: unset;
+}
+
+.box-login h1 {
+  color: #ffb000;
+}
+
+.form-box-login .input-box,
+.remember-forgot {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 25px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  outline: none;
+  border-bottom: 2px solid;
+  border-bottom-color: black;
+  transition: 0.5s;
+  font-size: 18px;
+  padding-right: 35px;
+  font-weight: 600;
+  color: rgb(114, 109, 109);
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-bottom-color: #ffb000;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: #ffb000;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: black;
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+}
+
+.btn {
+  --c: #ffb000; /* the color*/
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--c);
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+
+.btn:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+  color: white;
+}
+.btn:active {
+  box-shadow: 0 0 9e9Q inset rgba(138, 138, 138, 0.6);
+  background-color: var(--c);
+  color: white;
+  transition: transform 0.2s ease;
+  transform: translateY(2px);
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.form-box-login .register-link {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.form-box-login .register-link p a {
+  color: #ffb000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-box-login .register-link p a:hover {
+  text-decoration: underline;
+}
+
+.remember-forgot a {
+  color: #ffb000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.image-container img {
+  display: block;
+  max-width: 100px;
+  height: auto;
+}
+
+.image-container a {
+  display: none;
+}
+
+.circle {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .login-container {
+    flex-direction: column-reverse;
+    background: linear-gradient(-8deg, rgb(255, 255, 255) 50%, transparent 50%),
+      url(public/images/background11.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: unset;
+    background: none;
+    flex: none;
+  }
+
+  .image-container {
+    height: 350px;
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+
+  .box-login h1 {
+    display: none;
+  }
+
+  .wrapper .form-box-login {
+    width: 100%;
+    height: unset;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+    background-color: #ffb000;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: block;
+  }
+
+  .circle img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .box-login {
+    width: 70%;
+    border: none;
+    padding: 0;
+    margin-top: 5rem;
+  }
+
+  .image-container img {
+    display: none;
+  }
+
+  .image-container a {
+    display: block;
+    text-decoration: none;
+    color: rgb(65, 62, 62);
+    font-size: 20px;
+  }
+}
