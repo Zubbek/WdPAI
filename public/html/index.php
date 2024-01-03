@@ -48,7 +48,7 @@
           <a href="#contact">CONTACT </a>
         </div>
         <div class="nav-buttons">
-          <button class="sign-in-button">Sign in</button>
+          <button class="sign-in-button" type="submit" action="home">Sign in</button>
           <button class="sign-up-button">Register for Free</button>
         </div>
         <i class="fa-solid fa-bars" id="hamburger"></i>
@@ -59,7 +59,7 @@
           Welcome to Gluco, an innovative recipe app designed for people with diabetes :)
         </p>
         <div class="main-page-buttons">
-          <button class="sign-in-button">Sign in</button>
+          <button class="sign-in-button" type="submit" action="login">Sign in</button>
           <button class="sign-up-button">Sign up</button>
         </div>
       </div>

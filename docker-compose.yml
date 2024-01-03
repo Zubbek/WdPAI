@@ -1,18 +1,107 @@
-version: '24'
+# version: '3'
+# services:
+#   web:
+#     build:
+#       context: .
+#       dockerfile: docker/nginx/Dockerfile
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - .:/app/
+#     links:
+#       - php
+#     networks:
+#       - pg-network
+
+#   db:    
+    # image: postgres:latest    
+    # restart: always    
+    # environment:        
+      # - POSTGRES_DB=${DB_NAME}        
+      # - POSTGRES_USER=${DB_USER}        
+      # - POSTGRES_PASSWORD=${DB_PASSWORD} 
+  #   build:
+  #     context: .
+  #     dockerfile: docker/db/Dockerfile
+  #   ports:        
+  #     - 5432:5432
+  #   networks:
+  #     - pg-network    
+  #   volumes:        
+  #     - pg-data:/var/lib/postgresql/data
+  #     # - ./docker/postgres/:/docker-entrypoint-initdb.d/
+    
+
+  # php:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/php/Dockerfile
+  #   volumes:
+  #     - .:/app/
+
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pg-admin
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@example.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   ports:
+  #     - "5050:80"
+  #   networks:
+  #     - pg-network
+
+version: '3'
+
 services:
-    web:
-      build:
-        context: .
-        dockerfile: docker/nginx/Dockerfile    
-      ports:
-        - "8080:80"    
-      volumes:      
-        - .:/app/    
-      links:      
-        - php  
-    php:    
-      build:      
-        context: .      
-        dockerfile: docker/php/Dockerfile    
-      volumes:
-        - .:/app/
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - '8080:80'
+    volumes:
+      - .:/app/
+    links:
+      - php
+    networks:
+#      - wdpai-network
+      - pg-network
+
+  db:
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile
+    ports:
+      - '5432:5432'
+    networks:
+      - pg-network
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/app/
+    networks:
+#      - wdpai-network
+      - pg-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pg-admin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - '5050:80'
+    networks:
+      - pg-network
+
+networks:
+#  wdpai-network:
+  pg-network:
+
+volumes:
+  pg-data:

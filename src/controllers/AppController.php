@@ -1,11 +1,28 @@
 <?php
 
+
 class AppController {
-    protected function render(string $template = null) {
-        $templatePath = 'public/html/'.$template.'.html';
+
+    private $request;
+
+    public function __construct() {
+        $this->request = $_SERVER['REQUEST_METHOD'];
+    }
+
+    protected function isGet(): bool {
+        return ($this->request === 'GET');
+    }
+
+    protected function isPost(): bool {
+        return ($this->request === 'POST');
+    }
+
+    protected function render(string $template = null, array $variables = [] ) {
+        $templatePath = 'public/html/'.$template.'.php';
         $output = 'FIle not found!';
 
         if (file_exists($templatePath)) {
+            extract ($variables);
 
             ob_start();
             include $templatePath;
@@ -14,19 +31,3 @@ class AppController {
         print($output);
     }
 }
-
-// class AppController {
-//     protected function render(string $template = null, array $variables = [] ) {
-//         $templatePath = 'public/html'.$template.'.html';
-//         $output = 'FIle not found!';
-
-//         if (file_exists($templatePath)) {
-//             extract ($variables);
-
-//             ob_start();
-//             include $templatePath;
-//             $output = ob_get_clean();
-//         }
-//         print($output);
-//     }
-// }

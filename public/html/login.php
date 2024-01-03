@@ -30,15 +30,24 @@
           </div>
           <div class="box-login">
             <h1>Login</h1>
-            <form action="#">
+            <form action="home" method="post">
+              <div class="messages">
+                <?php if(isset($messages)) {
+                    foreach ($messages as $message) {
+                      echo $message;
+                    }
+                }
+                ?>
+              </div>
               <div class="input-box">
-                <input type="text" required />
-                <label>Username</label>
-                <i class="bx bxs-user"></i>
+                <input type="email" name="email-l" required />
+                <label>E-mail</label>
+                <i class='bx bxs-envelope'></i>
               </div>
               <div class="input-box">
                 <input
                   type="password"
+                  name="password-l"
                   required
                   aria-describedby="passwordHelp"
                 />

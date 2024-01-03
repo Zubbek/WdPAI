@@ -31,20 +31,21 @@
           </div>
           <div class="box-login">
             <h1>Create your account</h1>
-            <form action="#">
+            <form action="home" method="post">
               <div class="input-box">
-                <input type="text" required />
+                <input type="text" name="username-a" required />
                 <label>Username</label>
                 <i class="bx bxs-user"></i>
               </div>
               <div class="input-box">
-                <input type="email" required />
+                <input type="email" name="email-a" required />
                 <label>E-mail</label>
                 <i class='bx bxs-envelope'></i>
               </div>
               <div class="input-box">
                 <input
                   type="password"
+                  name="password-a"
                   required
                   aria-describedby="passwordHelp"
                 />
