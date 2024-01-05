@@ -73,6 +73,8 @@ services:
       dockerfile: docker/db/Dockerfile
     ports:
       - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: docker
     networks:
       - pg-network
     volumes:

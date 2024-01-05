@@ -67,7 +67,7 @@
       <div class="description-content">
         <div class="description-text">
           <h1>
-            <i class="bx bxs-info-circle"></i>
+           <i class='bx bx-calendar-check'></i>
             Description
           </h1>
           <p>
