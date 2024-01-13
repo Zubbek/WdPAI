@@ -31,7 +31,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script src="public/scripts/main.js" defer></script>
+    <script src="public/scripts/login.js" defer></script>
   </head>
   <body>
     <div class="main-page-container">
@@ -48,8 +48,8 @@
           <a href="#contact">CONTACT </a>
         </div>
         <div class="nav-buttons">
-          <button class="sign-in-button" type="submit" action="home">Sign in</button>
-          <button class="sign-up-button">Register for Free</button>
+        <button id="sign-in-button" class="sign-in-button">Sign In</button>
+        <button id="sign-up-button" class="sign-up-button">Register for Free</button>
         </div>
         <i class="fa-solid fa-bars" id="hamburger"></i>
       </nav>

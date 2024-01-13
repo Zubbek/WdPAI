@@ -32,6 +32,14 @@
           <div class="box-login">
             <h1>Create your account</h1>
             <form action="home" method="post">
+            <div class="messages">
+                <?php if(isset($messages)) {
+                    foreach ($messages as $message) {
+                      echo $message;
+                    }
+                }
+                ?>
+              </div>
               <div class="input-box">
                 <input type="text" name="username-a" required />
                 <label>Username</label>
