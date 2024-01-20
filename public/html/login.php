@@ -71,7 +71,7 @@
               <div class="register-link">
                 <p>
                   Don't have an accout ?
-                  <a href="account">Register</a>
+                  <a href="register">Register</a>
                 </p>
               </div>
             </form>

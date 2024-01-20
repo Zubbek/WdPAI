@@ -10,12 +10,7 @@ body {
 
 .login-container {
   display: flex;
-  background-image: radial-gradient(
-      circle,
-      rgba(88, 88, 88, 0.5) 0%,
-      rgba(129, 129, 129, 0.5) 100%
-    ),
-    url(/public/images/background11.jpg);
+  background-image: url(/public/images/background11.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

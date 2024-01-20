@@ -28,13 +28,15 @@
             src="../img/gluco-icon.png"
             alt="This is an icon of gluco-app"
           /> -->
-          <h1>Welcome User!</h1>
+          <H1>WELCOME <?php echo htmlspecialchars($user->getUserName()); ?>! </H1>
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
-            <a href="#preparation">SETTINGS</a>
-            <a href="#ingredients">CONTACT</a>
+            <a href="favourites">MEAL OF THE DAY</a>
           </div>
+          <form class="logout" action="logout.php" method="POST">
+              <button type="submit">LOG OUT</button>
+          </form> 
         </nav>
       </header>
       <div class="mobile-menu">
@@ -70,22 +72,12 @@
         <div class="popular-meals">
           <div class="meal-content">
             <h1>Popular</h1>
-            <div class="meal">
-              <h3>Recipe Title!</h3>
-              <button>Check</button>
-            </div>
-            <div class="meal">
-              <h3>Recipe Title!</h3>
-              <button>Check</button>
-            </div>
-            <div class="meal">
-              <h3>Recipe Title!</h3>
-              <button>Check</button>
-            </div>
-            <div class="meal">
-              <h3>Recipe Title!</h3>
-              <button>Check</button>
-            </div>
+            <?php foreach ($randomMeals as $meal): ?>
+              <div class="meal">
+                <h3><?php echo $meal['meal_name']; ?></h3>
+                <button>Check</button>
+              </div>
+            <?php endforeach; ?>
             <a class="see-all" href=""
               >See all
               <i class="bx bx-right-arrow-alt"></i>
@@ -109,12 +101,10 @@
             <div class="meal-description">
               <img src="public/images/pexels-eneida-nieves-803963.jpg" alt="" />
               <div class="description">
-                <h1>RECIPE NAME!</h1>
+                <h1><?php echo $mealOfDay['meal_name']; ?>
+                <i class='bx bx-happy-heart-eyes'></i></h1>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi
-                  quis accusamus beatae harum? Corrupti, tempore delectus iste
-                  optio deleniti quo dicta magnam accusamus esse similique totam
-                  maxime, asperiores molestiae eligendi.
+                <?php echo $mealOfDay['description'];?>
                 </p>
                 <button>Check</button>
               </div>

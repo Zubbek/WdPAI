@@ -31,7 +31,8 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <script src="public/scripts/login.js" defer></script>
+    <script src="public/scripts/main.js" defer></script>
+    <script src="public/scripts/sendMessage.js" defer></script>
   </head>
   <body>
     <div class="main-page-container">
@@ -42,14 +43,13 @@
           alt="This is an icon of gluco-app"
         />
         <div class="navbar-links">
-          <!-- <a href="#">HOME</a> -->
           <a href="#About-us">ABOUT US</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">CONTACT </a>
         </div>
         <div class="nav-buttons">
-        <button id="sign-in-button" class="sign-in-button">Sign In</button>
-        <button id="sign-up-button" class="sign-up-button">Register for Free</button>
+          <button class="sign-in-button" type="submit" action="login">Sign in</button>
+          <button class="sign-up-button" type="submit" action="register">Register For Free</button>
         </div>
         <i class="fa-solid fa-bars" id="hamburger"></i>
       </nav>
@@ -60,7 +60,7 @@
         </p>
         <div class="main-page-buttons">
           <button class="sign-in-button" type="submit" action="login">Sign in</button>
-          <button class="sign-up-button">Sign up</button>
+          <button class="sign-up-button" type="submit" action="register">Register For Free</button>
         </div>
       </div>
     </div>
@@ -75,31 +75,22 @@
         <div class="about-us1">
           <img src="/public/images/about-us2.jpg" alt="">
           <div class="description">
-            <h1>Why diabetic recipes?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-Modi quis accusamus beatae harum? Corrupti, tempore delectus iste optio 
-deleniti quo dicta magnam accusamus esse similique totam maxime, 
-asperiores molestiae eligendi.</p>
+            <h1>Why Diabetic Recipes?</h1>
+            <p>Diabetic recipes are crafted with precision to regulate blood sugar levels, ensuring a balanced and nourishing diet for individuals managing diabetes. Tailored ingredients promote health, energy, and delicious meals without compromising on taste.</p>
           </div>
         </div>
         <div class="about-us1">
           <img src="public/images/about-us3.jpg" alt="">
           <div class="description">
-            <h1>Why diabetic recipes?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-Modi quis accusamus beatae harum? Corrupti, tempore delectus iste optio 
-deleniti quo dicta magnam accusamus esse similique totam maxime, 
-asperiores molestiae eligendi.</p>
+            <h1>Is It Healthy?</h1>
+            <p>Absolutely. Diabetic recipes prioritize nutrient-rich ingredients, low glycemic index foods, and controlled portions. This health-centric approach supports overall well-being, weight management, and blood sugar control. Enjoying wholesome meals becomes a daily delight, contributing to a healthier lifestyle.</p>
           </div>
         </div>
         <div class="about-us1">
           <img src="public/images/about-us1.jpg" alt="">
           <div class="description">
-            <h1>Why diabetic recipes?</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-Modi quis accusamus beatae harum? Corrupti, tempore delectus iste optio 
-deleniti quo dicta magnam accusamus esse similique totam maxime, 
-asperiores molestiae eligendi.</p>
+            <h1>Is It Tasty?</h1>
+            <p>Diabetic recipes redefine the notion that healthy can't be delicious. Bursting with flavors, these recipes use herbs, spices, and creative combinations to tantalize taste buds. From vibrant salads to hearty entrees, each dish promises a delightful culinary experience, proving that healthy eating can be an indulgent pleasure.</p>
           </div>
         </div>
       </div>
@@ -335,7 +326,7 @@ asperiores molestiae eligendi.</p>
           </div>
         </div>
         <div class="contact-button">
-          <button class="contact-btn">Send</button>
+          <button type="button" class="contact-btn" onclick="validateAndSendForm()">Send</button>
         </div>
       </div>
     </div>

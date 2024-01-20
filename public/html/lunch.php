@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="public/css/dinner.css" />
+    <link rel="stylesheet" href="/public/css/lunch.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,9 +32,11 @@
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
-            <a href="#preparation">SETTINGS</a>
-            <a href="#ingredients">CONTACT</a>
+            <a href="favourites">MEAL OF THE DAY</a>
           </div>
+          <form class="logout" action="logout.php" method="POST">
+              <button type="submit">LOG OUT</button>
+          </form> 
         </nav>
       </header>
       <div class="mobile-menu">
@@ -45,10 +47,9 @@
       <div class="categories">
         <div class="categories-container">
           <div class="categories-info">
-            <h1>BEST DINNER RECIPES</h1>
+            <h1>BEST LUNCH RECIPES</h1>
             <p>
-              Elevate Your Evenings with Delectable Dinners! Welcome to the "Dinner" section, where we present a collection of recipes designed to transform your evenings. Whether you're seeking comforting classics or exploring adventurous cuisines, our dinner ideas cater to diverse tastes. Make every dinner memorable with these flavorful and well-balanced recipes.
-
+              Midday Delights for Satisfying Lunches! In the "Lunch" section, we offer a selection of recipes tailored for your midday fuel. Explore a variety of satisfying and quick lunch ideas that suit your taste and schedule. From vibrant salads to filling sandwiches, these recipes ensure that your lunch break is a moment to savor.
             </p>
           </div>
         </div>

@@ -32,9 +32,11 @@
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
-            <a href="#preparation">SETTINGS</a>
-            <a href="#ingredients">CONTACT</a>
+            <a href="favourites">MEAL OF THE DAY</a>
           </div>
+          <form class="logout" action="logout.php" method="POST">
+              <button type="submit">LOG OUT</button>
+          </form> 
         </nav>
       </header>
       <div class="mobile-menu">
