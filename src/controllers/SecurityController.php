@@ -83,7 +83,7 @@ class SecurityController extends AppController {
             return $this->render('home', [
                 'randomMeals' => $randomMeals,
                 'mealOfDay' => $mealOfDay,
-                'user' => $_SESSION['user'] 
+                'user' => $_SESSION['user'], 
             ]);
         } 
         elseif (isset($_POST["username-a"]) && isset($_POST["email-a"]) && isset($_POST["password-a"])) {

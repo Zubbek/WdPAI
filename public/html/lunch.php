@@ -28,7 +28,7 @@
             src="../img/gluco-icon.png"
             alt="This is an icon of gluco-app"
           /> -->
-          <h1>Welcome User!</h1>
+          <h1>LUNCH</h1>
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
@@ -54,6 +54,26 @@
           </div>
         </div>
     </div>
+    <div class="recipes">
+        <div class="meal-content">
+          <?php $counter = 0; ?>
+          <?php foreach ($lunch as $item): ?>
+              <?php $img = $item['image']; ?>
+              <div class="meal" style="background-image: radial-gradient(
+                circle,
+                rgba(60, 60, 60, 0.902) 0%,
+                rgba(53, 51, 51, 0) 100%
+            ),
+            url('<?=$img; ?>')">
+                <h3><?php echo $item['meal_name']; ?></h3>
+                <form action="/recipe" method="post">
+                  <input type="hidden" name="meal_name" value="<?php echo htmlspecialchars($item['meal_name']); ?>">
+                  <button type="submit">Check</button>
+                </form>
+              </div>
+            <?php endforeach; ?>
+        </div>
+      </div>
     <div class="greetings-content">
         <p>
           We hope that our app will meet your expectations!

@@ -28,7 +28,9 @@
             src="../img/gluco-icon.png"
             alt="This is an icon of gluco-app"
           /> -->
-          <h1>Welcome User!</h1>
+          <h1>FAVOURITES
+          <i class='bx bx-heart-square' style="font-size: 20px"></i>
+          </h1>
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>

@@ -15,6 +15,7 @@
       rel="stylesheet"
     />
     <title>Gluco</title>
+    <script src="public/scripts/categories.js" defer></script>
   </head>
   <body>
     <div class="main-container">
@@ -53,35 +54,41 @@
               explore a spectrum of delectable options designed for every part
               of your day. From energizing Breakfast delights to satisfying
               Lunch choices, indulgent Dinners, and delightful Snacks, each
-              category unfolds a treasure trove of diverse recipes. Dive in and
-              find the perfect dish for every occasion!
+              category unfolds a treasure trove of diverse recipes.
             </p>
           </div>
           <div class="categories-buttons">
-            <button><i class="bx bx-baguette"></i> BREKFAST</button>
-            <button><i class="bx bxs-coffee-alt"></i> LUNCH</button>
-            <button><i class="bx bx-restaurant"></i>DINNER</button>
-            <button>
-              <i class="bx bxs-cookie"></i>
-              SNACK
-            </button>
+          <button data-category="brekfast" href="/brekfast"><i class="bx bx-baguette"></i> BREKFAST</button>
+          <button data-category="lunch" href="/lunch"><i class="bx bx-baguette"></i> LUNCH</button>
+          <button data-category="dinner" href="/dinner"><i class="bx bx-baguette"></i> DINNER</button>
+          <button data-category="snack" href="/snack"><i class="bx bx-baguette"></i> SNACK</button>
           </div>
         </div>
       </div>
       <div class="content">
         <div class="popular-meals">
+          <div class="popular-info">
+            <h1>THE MOST POPULAR RECIPES</h1>
+            <p>
+            The Most Popular Recipes' tag opens the gateway to a culinary realm where flavor takes center stage. Delve into a curated selection of our community's most cherished and sought-after recipes. From the breakfast delights that kickstart the day to the satisfying lunch options, indulgent dinners, and delightful snacks, this tag unveils a treasure trove of gastronomic wonders.
+            </p>
+          </div>
           <div class="meal-content">
-            <h1>Popular</h1>
             <?php foreach ($randomMeals as $meal): ?>
-              <div class="meal">
+              <?php $img = $meal['image']; ?>
+              <div class="meal" style="background-image: radial-gradient(
+                circle,
+                rgba(60, 60, 60, 0.902) 0%,
+                rgba(53, 51, 51, 0) 100%
+            ),
+            url('<?=$img; ?>')">
                 <h3><?php echo $meal['meal_name']; ?></h3>
-                <button>Check</button>
+                <form action="/recipe" method="post">
+                  <input type="hidden" name="meal_name" value="<?php echo htmlspecialchars($meal['meal_name']); ?>">
+                  <button type="submit">Check</button>
+                </form>
               </div>
             <?php endforeach; ?>
-            <a class="see-all" href=""
-              >See all
-              <i class="bx bx-right-arrow-alt"></i>
-            </a>
           </div>
         </div>
         <div class="meal-day" id="meal-day">
@@ -99,14 +106,17 @@
               </p>
             </div>
             <div class="meal-description">
-              <img src="public/images/pexels-eneida-nieves-803963.jpg" alt="" />
+              <img src="<?php echo $mealOfDay['image']; ?>" alt="" />
               <div class="description">
                 <h1><?php echo $mealOfDay['meal_name']; ?>
                 <i class='bx bx-happy-heart-eyes'></i></h1>
                 <p>
                 <?php echo $mealOfDay['description'];?>
                 </p>
-                <button>Check</button>
+                <form action="/recipe" method="post">
+                  <input type="hidden" name="meal_name" value="<?php echo htmlspecialchars($mealOfDay['meal_name']); ?>">
+                  <button type="submit">Check</button>
+                </form>
               </div>
             </div>
           </div>

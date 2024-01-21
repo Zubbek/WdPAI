@@ -239,24 +239,45 @@ button:nth-child(4):active {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 4rem;
-  text-align: center;
 }
 
-.meal-content {
+.popular-info {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 4rem;
+  max-width: 60%;
+  margin: 100px auto;
+}
+
+.popular-info h1 {
+  font-size: 60px;
+  text-align: justify;
+}
+
+.popular-info p {
+  color: black;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.content .popular-meals .meal-content {
+  display: grid;
+  grid-template-rows: repeat(
+    2,
+    1fr
+  ); /* 7 wierszy z równym podziałem przestrzeni */
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* 2 kolumny z równym podziałem przestrzeni */
+  grid-gap: 7rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
 }
 
 .content .popular-meals .meal-content .meal {
-  background-image: radial-gradient(
-      circle,
-      rgba(60, 60, 60, 0.902) 0%,
-      rgba(53, 51, 51, 0) 100%
-    ),
-    url(/public/images/pexels-eneida-nieves-803963.jpg);
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -274,6 +295,7 @@ button:nth-child(4):active {
   padding: 5px 10px;
   width: 320px;
   height: 300px;
+  margin: 0 100px;
 }
 
 .content .popular-meals .meal-content .meal h3 {
@@ -372,8 +394,8 @@ button:nth-child(4):active {
 }
 
 .meal-description img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 50%;
+  max-height: 50%;
 }
 
 .meal-description button {

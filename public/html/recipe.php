@@ -18,8 +18,14 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="recipe-content">
-        <header class="header">
+      <?php $img = $recipe[0]['image']; ?>
+      <div class="recipe-content" style="background-image: radial-gradient(
+      circle,
+      rgba(71, 71, 71, 0.5) 0%,
+      rgba(53, 51, 51, 0.5) 100%
+    ),
+    url('<?=$img; ?>');">
+        <header class="header"> 
           <nav class="navbar">
             <a class="mobile-back" href="public/html/main-page.html">
               <i class="bx bx-chevron-left"></i>
@@ -43,7 +49,7 @@
           <a href="#nutritional">NUTRI VALUES</a>
         </div>
         <div class="recipe-name">
-          <p>Chicken Salad</p>
+          <p><?php echo $recipe[0]['mealname']; ?></p>
           <button class="add-favourite">
             Add to favourite
             <i class="bx bxs-heart-circle"></i>
@@ -52,13 +58,13 @@
             <a href="">
               <i class="bx bxs-heart-circle"></i>
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/watch?v=3VG1Pb4neXg">
               <i class="bx bx-share"></i>
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/watch?v=3VG1Pb4neXg">
               <i class="bx bxl-instagram"></i>
             </a>
-            <a href="">
+            <a href="https://www.youtube.com/watch?v=3VG1Pb4neXg">
               <i class="bx bxl-facebook-circle"></i>
             </a>
           </div>
@@ -71,14 +77,7 @@
             Description
           </h1>
           <p>
-            A chicken salad presents a balanced fusion of flavors and textures.
-            Tender pieces of boiled chicken intermingle with a medley of fresh
-            greens, crunchy cucumber slices, red onion rings, and succulent
-            strips of red bell pepper. The salad is lightly coated with a
-            yogurt-based dressing, imparting a lightness and refreshing taste.
-            With a sprinkle of salt, pepper, and favorite spices, this chicken
-            salad is an excellent choice for those seeking a combination of
-            healthy and delectable dining.
+          <?php echo $recipe[0]['description']; ?>
           </p>
         </div>
         <div class="description-table">
@@ -86,28 +85,28 @@
             <p>
                 <i class="bx bxs-category-alt"></i>
                 Category
-                <p>Dinner</p>
+                <p><?php echo $recipe[0]['category']; ?></p>
             </p>
           </div>
           <div class="li-2">
             <p>
                 <i class="bx bx-line-chart"></i>
-                Difficulty
-                <p>Medium</p>
+                Cook Time
+                <p><?php echo $recipe[0]['cooktime']; ?></p>
             </p>
           </div>
           <div class="li-3">
             <p>
                 <i class="bx bxs-time"></i>
-                Total time
-                <p>40 min</p>
+                Prep time
+                <p><?php echo $recipe[0]['preptime']; ?> min</p>
             </p>
           </div>
           <div class="li-4">
             <p>
                 <i class="bx bxs-bowl-hot"></i>
                 Yields
-                <p>4 Servings</p>
+                <p><?php echo $recipe[0]['servings']; ?></p>
             </p>
           </div> 
         </div>
@@ -190,31 +189,43 @@
         <div class="nutitional-description">
           <div class="elemnt1">
             <h1>Calories</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['calories']; ?></p>
           </div>
           <div class="elemnt2">
             <h1>Fat</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['fat']; ?></p>
           </div>
           <div class="elemnt3">
             <h1>Carbs</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['carbs']; ?></p>
           </div>
           <div class="elemnt4">
             <h1>Sugar</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['sugar']; ?></p>
           </div>
           <div class="elemnt5">
             <h1>Protein</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['protein']; ?></p>
           </div>
           <div class="elemnt6">
-            <h1>Fibre</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <h1>Fiber</h1>
+            <p><?php echo $recipe[0]['fiber']; ?></p>
           </div>
           <div class="elemnt7">
             <h1>Sodium</h1>
-            <p>22336.8 kJ / 534.4 kcl</p>
+            <p><?php echo $recipe[0]['sodium']; ?></p>
+          </div>
+          <div class="elemnt7">
+            <h1>Potassium</h1>
+            <p><?php echo $recipe[0]['potassium']; ?></p>
+          </div>
+          <div class="elemnt7">
+            <h1>Magnesium</h1>
+            <p><?php echo $recipe[0]['magnesium']; ?></p>
+          </div>
+          <div class="elemnt7">
+            <h1>Calcium</h1>
+            <p><?php echo $recipe[0]['calcium']; ?></p>
           </div>
         </div>
       </div>

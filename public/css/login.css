@@ -190,6 +190,7 @@ body {
 }
 
 .image-container img {
+
   display: block;
   max-width: 100px;
   height: auto;

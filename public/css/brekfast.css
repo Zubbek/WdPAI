@@ -149,35 +149,31 @@ body {
 }
 
 .meal-content {
-  display: flex;
+  display: grid;
+  grid-template-rows: repeat(
+    8,
+    1fr
+  ); /* 7 wierszy z równym podziałem przestrzeni */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* 2 kolumny z równym podziałem przestrzeni */
+  grid-gap: 10rem;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  padding: 0 10px;
 }
 
 .meal {
-  background-image: radial-gradient(
-      circle,
-      rgba(71, 71, 71, 0.445) 0%,
-      rgba(53, 51, 51, 0.5) 100%
-    ),
-    url(/public/images/smothiebowl.jpg);
-
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  display: flex;
-  flex-direction: column;
-
   border-radius: 40px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 5px 10px;
-  width: 320px;
   height: 300px;
 }
 

@@ -10,12 +10,12 @@ Routing::get('', 'DefaultController');
 Routing::get('home', 'SecurityController');
 Routing::get('login', 'DefaultController');
 Routing::get('register', 'DefaultController');
-Routing::get('recipe', 'DefaultController');
+Routing::get('recipe', 'RecipeController');
 Routing::get('favourites', 'DefaultController');
-Routing::get('brekfast', 'DefaultController');
-Routing::get('lunch', 'DefaultController');
-Routing::get('dinner', 'DefaultController');
-Routing::get('snack', 'DefaultController');
+Routing::get('brekfast', 'RecipeController');
+Routing::get('lunch', 'RecipeController');
+Routing::get('dinner', 'RecipeController');
+Routing::get('snack', 'RecipeController');
 Routing::get('example', 'DefaultController');
 
 
