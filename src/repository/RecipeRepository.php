@@ -11,7 +11,7 @@ class RecipeRepository extends Repository {
         try {
             $conn = $this->database->connect();
 
-            $query = "SELECT meal_name, image FROM meals ORDER BY RANDOM() LIMIT :limit";
+            $query = "SELECT meal_name, image FROM meals LIMIT :limit";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
 
@@ -39,7 +39,7 @@ class RecipeRepository extends Repository {
 
         try {
             $conn = $this->database->connect();
-            $query = "SELECT meal_name, description, image FROM meals ORDER BY RANDOM() LIMIT 1";
+            $query = "SELECT meal_name, description, image FROM meals LIMIT 1";
             $stmt = $conn->prepare($query);
 
             try {

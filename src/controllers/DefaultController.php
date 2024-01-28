@@ -4,7 +4,7 @@ require_once 'AppController.php';
 require_once __DIR__.'/../repository/FetchAndSaveDataRepository.php';
 
 class DefaultController extends AppController {
-    
+
     public function gluco() {
         $fetchRepository = new FetchAndSaveDataRepository();
         $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
@@ -17,14 +17,10 @@ class DefaultController extends AppController {
                 }
      
                 $fetchRepository->saveDataFromApi($decoded);
-                echo json_encode(['message' => 'Dane zostały zapisane']);
-            }
-            else { 
-                echo json_encode(['message' => 'Dane nie zostały zapisane - brak danych JSON']);
             }
         $this->render('gluco');
     }
-
+    
     public function login() {
         $this->render('login');
     }

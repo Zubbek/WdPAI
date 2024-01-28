@@ -1,10 +1,25 @@
+async function fetchConfig() {
+    try {
+        const response = await fetch('config.json');
+        const config = await response.json();
+        return config;
+    } catch (error) {
+        console.error('Error fetching config:', error);
+        return null;
+    }
+}
+
+
 async function fetchData(url, delay) {
+    const config = await fetchConfig();
+    if (!config) return; // obsługa błędu
+
     return new Promise(resolve => {
         setTimeout(async () => {
             const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '3b527c6083msh103afad78e61d2cp10fe65jsn45477683e4f5',
+                    'X-RapidAPI-Key': config.RAPIDAPI_KEY,
                     'X-RapidAPI-Host': 'low-carb-recipes.p.rapidapi.com'
                 }
             };

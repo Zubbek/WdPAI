@@ -511,7 +511,7 @@ div.main-page-container p {
   padding-top: 15px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1150px) {
   .navbar {
     position: relative;
     height: 100px !important;

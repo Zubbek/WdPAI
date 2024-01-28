@@ -16,6 +16,7 @@ if(isset($_POST)) {
 }
 
 Routing::get('gluco', 'DefaultController');
+Routing::get('', 'DefaultController');
 Routing::get('home', 'SecurityController');
 Routing::get('login', 'DefaultController');
 Routing::get('register', 'DefaultController');
