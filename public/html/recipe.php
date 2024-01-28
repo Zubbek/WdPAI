@@ -50,10 +50,14 @@
         </div>
         <div class="recipe-name">
           <p><?php echo $recipe[0]['mealname']; ?></p>
-          <button class="add-favourite">
-            Add to favourite
-            <i class="bx bxs-heart-circle"></i>
-          </button>
+          <form method="post" action="favourites">
+                <input type="hidden" name="recipe_id" value="<?php echo htmlspecialchars($recipe[0]['id']); ?>">
+                <input type="hidden" value="<?php echo htmlspecialchars($user->getEmail()); ?>" name="user_email"/>
+                <button type="submit" class="add-favourite">
+                    Add to favourite
+                    <i class="bx bxs-heart-circle"></i>
+                </button>
+          </form>
           <div class="icons">
             <a href="">
               <i class="bx bxs-heart-circle"></i>
@@ -92,7 +96,7 @@
             <p>
                 <i class="bx bx-line-chart"></i>
                 Cook Time
-                <p><?php echo $recipe[0]['cooktime']; ?></p>
+                <p><?php echo $recipe[0]['cooktime']; ?> min</p>
             </p>
           </div>
           <div class="li-3">
@@ -125,15 +129,26 @@
           </div>
         </div>
         <div class="ingredients-description">
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
-          <li>200 g of chicken</li>
+          <?php 
+          // Podziel ciąg tekstowy na składniki
+          $ingredientsList = explode(', ', $recipe[0]['ingredients']);
+          
+          // Dla każdego składnika wyodrębnij jego nazwę i ilość gramową
+          foreach ($ingredientsList as $ingredient): 
+              // Sprawdź, czy składnik zawiera ilość gramową
+              if (preg_match('/^(.*?):\s*(\d+(?:\.\d+)?)g$/', $ingredient, $matches)) {
+                  $name = $matches[1];
+                  $amount = $matches[2];
+              } else {
+                  // Jeśli brakuje ilości gramowej, traktuj cały składnik jako nazwę
+                  $name = $ingredient;
+                  $amount = ''; // Ustaw pustą ilość gramową
+              }
+              ?>
+              <li><?php echo $name . ' - ' . $amount. " ". "g"; ?></li>
+          <?php endforeach; ?>
         </div>
+
       </div>
       <div class="preparation">
         <div class="preparation-content">
@@ -149,31 +164,16 @@
           </div>
 
           <div class="preparation-description">
-            <li>
-              Prepare the Chicken Cook and shred the chicken breasts into
-              bite-sized pieces.
-            </li>
-            <li>In a large bowl, combine the mixed salad greens.</li>
-            <li>
-              Add the halved cherry tomatoes, sliced cucumber, and thinly sliced
-              red onion to the bowl.
-            </li>
-            <li>Sprinkle crumbled feta cheese over the salad.</li>
-            <li>Add sliced black olives to the mix.</li>
-            <li>
-              Toss the shredded chicken into the salad for a protein boost.
-            </li>
-            <li>
-              In a separate bowl, whisk together olive oil, lemon juice, Dijon
-              mustard, minced garlic, salt, and pepper to create a flavorful
-              dressing.
-            </li>
-            <li>
-              Drizzle the dressing over the salad and gently toss everything
-              together until well coated. Serve immediately, garnished with
-              freshly chopped parsley if desired.
-            </li>
-          </div>
+            <?php 
+            // Podziel ciąg tekstowy na zdania
+            $preparationSteps = explode('. ', $recipe[0]['preparation']);
+            
+            // Wyświetl każde zdanie jako element listy
+            foreach ($preparationSteps as $step): 
+                ?>
+                <li><?php echo $step; ?>.</li>
+            <?php endforeach; ?>
+        </div>
         </div>
       </div>
       <div class="nutritional">

@@ -27,11 +27,15 @@ body {
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
+  text-align: center;
 }
 
 .recipe-name p {
+  margin-left: 20px;
   font-size: 70px;
   color: white;
+  text-align: center;
+  
 }
 
 .nav-logo {
@@ -147,7 +151,7 @@ body {
 }
 
 .description-text {
-  max-width: 600px;
+  margin-right: 20px;
 }
 
 .description-text h1 {

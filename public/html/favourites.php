@@ -34,7 +34,6 @@
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
-            <a href="favourites">MEAL OF THE DAY</a>
           </div>
           <form class="logout" action="logout.php" method="POST">
               <button type="submit">LOG OUT</button>
@@ -61,6 +60,35 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="recipes">
+      <div class="meal-content">
+          <?php
+            $maxItems = 24; // Maksymalna ilość elementów do wyświetlenia
+            $counter = 0;
+
+            foreach ($favourites as $item):
+                if ($counter < $maxItems): // Sprawdź, czy nie przekroczyliśmy maksymalnej ilości elementów
+                    $img = $item['image'];
+            ?>
+                    <div class="meal" style="background-image: radial-gradient(
+                        circle,
+                        rgba(60, 60, 60, 0.902) 0%,
+                        rgba(53, 51, 51, 0) 100%
+                        ),
+                        url('<?=$img; ?>')">
+                        <h3 class="meal-name"><?php echo $item['meal_name']; ?></h3>
+                        <form action="/recipe" method="post">
+                            <input type="hidden" name="meal_name" value="<?php echo htmlspecialchars($item['meal_name']); ?>">
+                            <button type="submit">Check</button>
+                        </form>
+                    </div>
+            <?php
+                    $counter++;
+                endif;
+            endforeach;
+          ?>
       </div>
     </div>
     <div class="greetings-content">

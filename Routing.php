@@ -19,12 +19,12 @@ class Routing {
         $action = explode("/", $url)[0];
 
         if (!array_key_exists($action, self::$routes)) {
-            die("404");
+            die("404 elo");
         }
 
         $controller = self::$routes[$action];
         $object = new $controller;
-        $action = $action ?: 'index';
+        $action = $action ?: 'gluco';
         
         $object->$action();
     }

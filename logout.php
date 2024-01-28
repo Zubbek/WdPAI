@@ -7,5 +7,5 @@ $_SESSION = array();
 session_destroy();
 
 // Przekierowanie na stronę logowania lub główną
-header('Location: /');
+header('Location: /login');
 exit;

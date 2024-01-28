@@ -33,7 +33,6 @@
           <div class="navbar-links">
             <a href="home">HOME</a>
             <a href="favourites">FAVOURTIES</a>
-            <a href="favourites">MEAL OF THE DAY</a>
           </div>
           <form class="logout" action="logout.php" method="POST">
               <button type="submit">LOG OUT</button>
@@ -111,7 +110,7 @@
                 <h1><?php echo $mealOfDay['meal_name']; ?>
                 <i class='bx bx-happy-heart-eyes'></i></h1>
                 <p>
-                <?php echo $mealOfDay['description'];?>
+                <?php echo $mealOfDay['description']."...";?>
                 </p>
                 <form action="/recipe" method="post">
                   <input type="hidden" name="meal_name" value="<?php echo htmlspecialchars($mealOfDay['meal_name']); ?>">

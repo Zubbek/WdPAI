@@ -43,7 +43,7 @@ body {
 
 .navbar a {
   text-decoration: none;
-  color: #ffb000;
+  color: whitesmoke;
   font-weight: 600;
   transition: all 0.2s ease-in;
 }
@@ -57,14 +57,7 @@ body {
 .navbar a:hover {
   padding-top: 10px;
   text-decoration: underline solid 2px;
-}
-
-.navbar a:nth-child(1) {
-  color: white;
-}
-
-.navbar a:nth-child(3) {
-  color: white;
+  color: #ffb000;
 }
 
 .logout button {
@@ -135,6 +128,93 @@ body {
   font-weight: 600;
 }
 
+.recipes {
+  margin: 150px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+}
+
+.meal-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolumny o równej szerokości */
+  grid-auto-rows: minmax(300px, auto); /* automatyczne dostosowywanie wysokości wierszy */
+  grid-gap: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.meal {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  height: 300px;
+}
+
+.meal h3 {
+  color: whitesmoke;
+}
+
+.meal button {
+  --c: #ffb000; /* the color*/
+  position: relative;
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--c);
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+
+.meal button:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+  color: white;
+}
+.meal button:active {
+  box-shadow: 0 0 9e9Q inset rgba(138, 138, 138, 0.6);
+  background-color: var(--c);
+  color: white;
+  transition: transform 0.2s ease;
+  transform: translateY(2px);
+}
+
+.meal-content a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffb000;
+  font-size: 20px;
+}
+
+.meal-content a:hover {
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
 .greetings-content {
   margin-top: 200px;
   margin-bottom: 20px;
@@ -146,7 +226,6 @@ body {
 
 .greetings-content p {
   font-size: 20px;
-  color: #ffb000;
 }
 
 .author-info {

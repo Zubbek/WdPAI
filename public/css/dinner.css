@@ -43,7 +43,7 @@ body {
 
 .navbar a {
   text-decoration: none;
-  color: #ffb000;
+  color: whitesmoke;
   font-weight: 600;
   transition: all 0.2s ease-in;
 }
@@ -57,14 +57,7 @@ body {
 .navbar a:hover {
   padding-top: 10px;
   text-decoration: underline solid 2px;
-}
-
-.navbar a:nth-child(1) {
-  color: white;
-}
-
-.navbar a:nth-child(3) {
-  color: white;
+  color: #ffb000;
 }
 
 .logout button {
@@ -148,15 +141,9 @@ body {
 
 .meal-content {
   display: grid;
-  grid-template-rows: repeat(
-    8,
-    1fr
-  ); /* 7 wierszy z równym podziałem przestrzeni */
-  grid-template-columns: repeat(
-    3,
-    1fr
-  ); /* 2 kolumny z równym podziałem przestrzeni */
-  grid-gap: 10rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolumny o równej szerokości */
+  grid-auto-rows: minmax(300px, auto); /* automatyczne dostosowywanie wysokości wierszy */
+  grid-gap: 100px;
   justify-content: center;
   align-items: center;
   padding: 0 10px;
@@ -176,7 +163,7 @@ body {
 }
 
 .meal h3 {
-  color: #ffb000;
+  color: whitesmoke;
 }
 
 .meal button {

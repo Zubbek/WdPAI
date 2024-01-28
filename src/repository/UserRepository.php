@@ -19,20 +19,17 @@ class UserRepository extends Repository
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user === false) {
-                // User with the given email not found
                 return null;
             }
 
             // Verify the password using password_verify
             if (password_verify($password, $user['password_'])) {
-                // Password is correct, return a User object
                 return new User(
                     $user['username'],
                     $user['email'],
                     $user['password_']
                 );
             } else {
-                // Incorrect password
                 return null;
             }
         } catch (PDOException $e) {
@@ -41,6 +38,10 @@ class UserRepository extends Repository
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 
@@ -79,6 +80,10 @@ class UserRepository extends Repository
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 }

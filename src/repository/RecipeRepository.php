@@ -28,6 +28,10 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 
@@ -55,6 +59,10 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally { //zamykanie połączenia 
+            if ($conn) {
+                $conn = null;
+            }
         }
     }
 
@@ -68,7 +76,7 @@ class RecipeRepository extends Repository {
     public function getBrekfast() {
         try {
             $conn = $this->database->connect();
-            $query = "SELECT meal_name, image FROM meals WHERE category = 'Brekfast'";
+            $query = "SELECT meal_name, image FROM meals WHERE category = 'breakfast'";
             $stmt = $conn->prepare($query);
 
             try {
@@ -84,13 +92,17 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 
     public function getLunch() {
         try {
             $conn = $this->database->connect();
-            $query = "SELECT meal_name, image FROM meals WHERE category = 'Lunch'";
+            $query = "SELECT meal_name, image FROM meals WHERE category = 'lunch'";
             $stmt = $conn->prepare($query);
 
             try {
@@ -106,13 +118,17 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 
     public function getDinner() {
         try {
             $conn = $this->database->connect();
-            $query = "SELECT meal_name, image FROM meals WHERE category = 'Dinner'";
+            $query = "SELECT meal_name, image FROM meals WHERE category = 'dinner'";
             $stmt = $conn->prepare($query);
 
             try {
@@ -128,13 +144,17 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
 
     public function getSnack() {
         try {
             $conn = $this->database->connect();
-            $query = "SELECT meal_name, image FROM meals WHERE category = 'Snack'";
+            $query = "SELECT meal_name, image FROM meals WHERE category = 'snacks'";
             $stmt = $conn->prepare($query);
 
             try {
@@ -150,6 +170,10 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
     
@@ -157,6 +181,7 @@ class RecipeRepository extends Repository {
         try {
             $conn = $this->database->connect();
             $query = "SELECT 
+                m.id AS id,
                 m.category AS Category,
                 m.meal_name AS MealName,
                 m.description AS Description,
@@ -200,9 +225,167 @@ class RecipeRepository extends Repository {
         } catch (Exception $e) {
             error_log($e->getMessage());
             throw $e;
+        }finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
+        }
+    }
+
+    public function getFavourites() {
+        try {
+            $conn = $this->database->connect();
+            $query = "SELECT 
+            m.meal_name,
+            m.image
+            FROM 
+                meals m
+            INNER JOIN 
+                favourites f ON m.id = f.meal_id
+            INNER JOIN 
+            users u ON f.user_id = u.id;";
+            $stmt = $conn->prepare($query);
+
+            try {
+                $stmt->execute();
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $results;
+            } catch (PDOException $e) {
+                die("Query failed: " . $e->getMessage());
+            }
+            } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
+        }
+    }
+
+    public function addToFavourites($user_id, $meal_id) {
+        try {
+            $conn = $this->database->connect();
+            $query = "INSERT INTO favourites (user_id, meal_id) VALUES (:user_id, :meal_id)";
+            $stmt = $conn->prepare($query);
+    
+            // Bindowanie parametrów
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':meal_id', $meal_id);
+    
+            // Wykonanie zapytania
+            $success = $stmt->execute();
+    
+            if ($success) {
+
+                // Zgłaszanie alertu
+                $this->sendFavouriteAddedNotification();
+                return true; 
+            } else {
+                return false; 
+            }
+        } catch (PDOException $e) {
+            if ($e->getCode() == '23505') { // Unique violation
+                return false; // Zwracanie false, jeśli przepis już istnieje
+            } else {
+                error_log("Query failed: " . $e->getMessage());
+                throw $e;
+            }
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
         }
     }
     
-}
 
+    public function getId($email) {
+        try {
+            $conn = $this->database->connect();
+            $query = "SELECT id FROM users WHERE email = :email"; // Poprawienie literówki w nazwie kolumny oraz zabezpieczenie przed SQL Injection
+            $stmt = $conn->prepare($query);
+            
+            // Bindowanie parametrów
+            $stmt->bindParam(':email', $email);
+    
+            $success = $stmt->execute();
+    
+            if ($success) {
+                // Pobranie wyniku zapytania
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                // Jeżeli znaleziono użytkownika, zwracanie id
+                if ($result) {
+                    return $result['id'];
+                } else {
+                    return null;
+                }
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            // Obsługa błędu związanego z bazą danych
+            error_log("Query failed: " . $e->getMessage());
+            throw $e; 
+        } catch (Exception $e) {
+            // Obsługa innych błędów
+            error_log($e->getMessage());
+            throw $e; 
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
+        }
+    }    
+
+   // Metoda do wysyłania powiadomienia o dodaniu ulubionego
+   private function sendFavouriteAddedNotification() {
+        try {
+            $conn = $this->database->connect();
+            // Wiadomość powiadomienia
+            $notificationMessage = json_encode(array(
+                'type' => 'favourite_added',
+                'message' => 'Favourite added'
+            ));
+
+            // Wywołanie funkcji pg_notify() do wysłania powiadomienia
+            $query = "SELECT pg_notify('favourite_added', :notification_message)";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':notification_message', $notificationMessage);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            error_log("Database connection failed: " . $e->getMessage());
+            throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
+        }
+    }
+    public function getNotification() {
+        try {
+            $conn = $this->database->connect();
+            // Oczekiwanie na powiadomienia
+            $res = pg_get_notify($conn);
+            if ($res) {
+                return $res['message'];
+            } else {
+                return 'No notification received';
+            }
+        } catch (PDOException $e) {
+            error_log("Database connection failed: " . $e->getMessage());
+            throw $e;
+        } finally {
+            if ($conn) { //zamykanie połączenia 
+                $conn = null;
+            }
+        }
+    }    
+}
 ?>

@@ -9,7 +9,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/gluco.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,6 +33,7 @@
     />
     <script src="public/scripts/main.js" defer></script>
     <script src="public/scripts/sendMessage.js" defer></script>
+    <script src="public/scripts/script.js" defer></script>
   </head>
   <body>
     <div class="main-page-container">
