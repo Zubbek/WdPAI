@@ -41,7 +41,8 @@ Project is created with:
 
 ## Screenshots
 
-
+<img width="1440" alt="Zrzut ekranu 2024-01-29 o 11 25 30" src="https://github.com/Zubbek/WdPAI/assets/129663845/9151db35-7928-49e1-a74e-46be0e6cf388">
+<img width="1440" alt="Zrzut ekranu 2024-01-29 o 11 25 44" src="https://github.com/Zubbek/WdPAI/assets/129663845/125cebd8-533b-4f64-8136-878d98eb4039">
 <img width="1437" alt="Zrzut ekranu 2024-01-29 o 00 47 52" src="https://github.com/Zubbek/WdPAI/assets/129663845/d4b3b9b0-65cc-4c33-b2b5-c4da9c7cc642">
 <img width="1438" alt="Zrzut ekranu 2024-01-29 o 00 48 24" src="https://github.com/Zubbek/WdPAI/assets/129663845/947bbfc9-1ebb-4a61-a20d-647d2dfa5af0">
 <img width="1440" alt="Zrzut ekranu 2024-01-29 o 00 48 41" src="https://github.com/Zubbek/WdPAI/assets/129663845/83ed758e-3b96-48f5-ac4b-88dd30b9123d">
