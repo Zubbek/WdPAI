@@ -16,14 +16,16 @@ Project is created with:
 * CSS
 * low-carb-recipes.p.rapidapi.com
 * BoxIcons
+* Google Fonts
+* Pexels
 
 ## Features
 
 - User Authentication
-- 4 category of recipes
+- 4 category of recipes (Breakfast Snacks, Lunch and Main Course)
 - About 80 Recipes to check
 - Full description, ingrednients and preparation with nutritional values
-- Favourite recipes
+- Favourite recipes (User can add recipe that he likes and comeback to that recipe whenever he want)
 
 
 ## License
@@ -32,38 +34,9 @@ Project is created with:
 
 [RAPIDAPI](https://rapidapi.com/dfskGT/api/low-carb-recipes/pricing)
 
-# Gluco - Diabetic recipes app
+[GOOGLEFONTS](https://fonts.google.com/knowledge/using_type/using_web_fonts_from_a_font_delivery_service)
 
-Gluco is a specialized application designed to cater to individuals adhering to a sugar-free diet or managing diabetes. With an extensive collection of recipes tailored to these dietary needs, Gluco aims to make meal planning and preparation easier and more enjoyable.
-
-## Tech Stack
-
-Project is created with:
-
-* PHP version: 7.4.3-fpm-alpine3.11
-* NGINX version: 1.17.8-alpine
-* DOCKER version: 3
-* POSTGRES
-* JS
-* HTML
-* CSS
-* low-carb-recipes.p.rapidapi.com
-* BoxIcons
-
-## Features
-
-- User Authentication
-- 4 category of recipes
-- About 80 Recipes to check
-- Full description, ingrednients and preparation with nutritional values
-- Favourite recipes
-
-
-## License
-
-[BOXICONS](https://boxicons.com/usage)
-
-[RAPIDAPI](https://rapidapi.com/dfskGT/api/low-carb-recipes/pricing)
+[PEXELS](https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project)
 
 
 ## Screenshots
